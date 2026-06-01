@@ -1,0 +1,9 @@
+name = "tripit-for-outlook"
+main = "worker.js"
+compatibility_date = "2026-06-01"
+
+[observability.logs]
+enabled = true
+
+[observability.traces]
+enabled = false
