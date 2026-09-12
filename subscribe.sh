@@ -46,7 +46,8 @@ name="$(sed -nE 's/^name *= *"?([^"]+)"?.*/\1/p' "$DIR/wrangler.toml" | head -1)
 token="${CLOUDFLARE_API_TOKEN:-}"
 if [ -z "$token" ]; then
   for cfg in "$HOME/.wrangler/config/default.toml" \
-             "${XDG_CONFIG_HOME:-$HOME/.config}/.wrangler/config/default.toml"; do
+             "${XDG_CONFIG_HOME:-$HOME/.config}/.wrangler/config/default.toml" \
+             "$HOME/Library/Preferences/.wrangler/config/default.toml"; do
     if [ -f "$cfg" ]; then
       token="$(sed -nE 's/^oauth_token *= *"?([^"]+)"?.*/\1/p' "$cfg" | head -1)"
       [ -n "$token" ] && break
